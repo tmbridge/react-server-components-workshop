@@ -1,9 +1,12 @@
+// ./region-worker/index.tsx
+
 import React from "react";
 import { renderToReadableStream } from "react-server-dom-esm/server";
 import { App } from "../src/App.js";
+import type { RegionEnvironment } from "../types.js";
 
-function renderApp() {
-	const root = React.createElement(App);
+function renderApp(env: RegionEnvironment) {
+	const root = React.createElement(App, { env });
 	return renderToReadableStream(root, {
 		baseURL: "/src",
 		transform: (url) => url.replace(/\.(t|j)sx?/, ".js"),
@@ -11,8 +14,8 @@ function renderApp() {
 }
 
 export default {
-	async fetch(request) {
-		const readableStream = renderApp();
+	async fetch(request, env) {
+		const readableStream = renderApp(env);
 		return new Response(readableStream);
 	},
-} as ExportedHandler;
+} as ExportedHandler<RegionEnvironment>;

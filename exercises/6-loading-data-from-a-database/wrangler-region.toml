@@ -1,5 +1,12 @@
+# ./wrangler-region.toml
+
 name = "region-worker"
 main = "./dist-region/index.js"
 compatibility_date = "2023-11-09"
 compatibility_flags = ["nodejs_compat"]
 
+[[d1_databases]]
+binding = "DB"
+database_name = "rsc-workshop"
+database_id = "0e8098bf-b6da-45e6-9146-26009eb0ad4a" # REPLACE THIS WITH YOUR ID!
+migrations_dir = "./migrations" # ADD THIS LINE

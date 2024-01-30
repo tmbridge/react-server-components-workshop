@@ -1,17 +1,22 @@
+// ./src/App.tsx
 "use server";
 
 import { Suspense } from "react";
 import { BrowserReact } from "../../../utils/BrowserReact.js";
+import type { RegionEnvironment } from "../types.js";
 import { Counter } from "./Counter.js";
-import { Todos } from "./Todos.js";
+import { Notes } from "./Notes.js";
 
-export function App() {
+export function App({ env }: { env: RegionEnvironment }) {
 	return (
 		<html lang="en">
 			<head>
 				<meta charSet="utf-8" />
-				<meta name="viewport" content="width=device-width, initial-scale=1" />
-				<title>6 | Server Actions</title>
+				<meta
+					name="viewport"
+					content="width=device-width, initial-scale=1"
+				/>
+				<title>6 | Loading data from a database</title>
 				<BrowserReact />
 			</head>
 			<body>
@@ -21,7 +26,7 @@ export function App() {
 					<Counter />
 					<Suspense fallback={<p>Loading...</p>}>
 						{/* @ts-expect-error Async Server Component */}
-						<Todos />
+						<Notes env={env} />
 					</Suspense>
 				</div>
 				<script type="module" src="/src/index.js"></script>
