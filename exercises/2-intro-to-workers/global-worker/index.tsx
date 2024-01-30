@@ -5,7 +5,7 @@ export default {
 
         if (url.pathname === "/date") {
             // If the request is for `/date`, return the current date
-            return new Response(new Date().toISOString());
+            return new Response(new Date().toISOString() + " Tim was here");
         }
 
         // Otherwise, serve the static assets like normal
