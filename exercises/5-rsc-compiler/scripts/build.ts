@@ -9,6 +9,7 @@ import {
 } from "../../../utils/esbuild.js";
 
 import { load as regionLoader } from "../../../utils/loader/region.js";
+import { CLOUDFLARE_WORKERS_SUBDOMAIN } from "../../../constants.js";
 
 const MODULE_ROOT = resolve(fileURLToPath(import.meta.url), "../../src");
 
