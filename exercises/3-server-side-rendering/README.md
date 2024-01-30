@@ -104,7 +104,7 @@
    			</head>
    			<body>
    				<div>
-   					<p>"Hello, world!" from server-side rendered React!</p>
+   					<p>"Hello, world!" from server-side rendered React!  Tim was here</p>
    					<img src="/react-summit.svg" width="128" />
    					<Counter />
    				</div>
