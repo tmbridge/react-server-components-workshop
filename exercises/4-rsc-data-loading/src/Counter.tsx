@@ -1,3 +1,6 @@
+// ./src/Counter.tsx
+"use client";
+
 import { useState } from "react";
 
 export function Counter() {
